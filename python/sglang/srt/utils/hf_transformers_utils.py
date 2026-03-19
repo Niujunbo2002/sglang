@@ -61,6 +61,7 @@ from sglang.srt.configs import (
     KimiLinearConfig,
     KimiVLConfig,
     LongcatFlashConfig,
+    MinerUDiffusionConfig,
     MultiModalityConfig,
     NemotronH_Nano_VL_V2_Config,
     NemotronHConfig,
@@ -68,6 +69,7 @@ from sglang.srt.configs import (
     Qwen3_5Config,
     Qwen3_5MoeConfig,
     Qwen3NextConfig,
+    SDARConfig,
     Step3p5Config,
     Step3VLConfig,
 )
@@ -90,6 +92,7 @@ _CONFIG_REGISTRY: List[Type[PretrainedConfig]] = [
     InternVLChatConfig,
     Step3VLConfig,
     LongcatFlashConfig,
+    MinerUDiffusionConfig,
     Olmo3Config,
     KimiLinearConfig,
     Qwen3NextConfig,
@@ -105,6 +108,7 @@ _CONFIG_REGISTRY: List[Type[PretrainedConfig]] = [
     JetNemotronConfig,
     JetVLMConfig,
     KimiK25Config,
+    SDARConfig,
     Step3p5Config,
 ]
 
