@@ -1333,6 +1333,7 @@ multimodal_model_archs = [
     "PaddleOCRVLForConditionalGeneration",
     "MiDashengLMModel",
     "MinerUDiffusionForConditionalGeneration",
+    "MinerUDiffusionV2ForConditionalGeneration",
     "StepVLForConditionalGeneration",
     "KimiK25ForConditionalGeneration",
 ]

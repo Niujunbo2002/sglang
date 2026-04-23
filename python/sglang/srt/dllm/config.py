@@ -38,7 +38,7 @@ class DllmConfig:
         }
 
         arch = model_config.hf_config.architectures[0]
-        if arch == "MinerUDiffusionForConditionalGeneration":
+        if arch in {"MinerUDiffusionForConditionalGeneration", "MinerUDiffusionV2ForConditionalGeneration"}:
             block_size = getattr(model_config.hf_config.text_config, "block_size", 32)
             mask_id = getattr(model_config.hf_config, "mask_token_id")
         elif arch in DLLM_PARAMS:

@@ -324,9 +324,26 @@ class MinerUDiffusionConfig(PretrainedConfig):
         return self.text_config.hidden_size
 
 
+@register_customized_processor(processor_class=MinerUDiffusionProcessor)
+class MinerUDiffusionV2Config(MinerUDiffusionConfig):
+    model_type = "mineru_diffusion_v2"
+    architectures = ["MinerUDiffusionV2ForConditionalGeneration"]
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.architectures = ["MinerUDiffusionV2ForConditionalGeneration"]
+        self.auto_map = {
+            "AutoConfig": "configuration_mineru_diffusion.MinerUDiffusionV2Config",
+            "AutoModel": "modeling_mineru_diffusion.MinerUDiffusionV2ForConditionalGeneration",
+            "AutoModelForCausalLM": "modeling_mineru_diffusion.MinerUDiffusionV2ForConditionalGeneration",
+            "AutoProcessor": "processing_mineru_diffusion.MinerUDiffusionProcessor",
+        }
+
+
 for name, cls in {
     "sdar": SDARConfig,
     "mineru_diffusion": MinerUDiffusionConfig,
+    "mineru_diffusion_v2": MinerUDiffusionV2Config,
 }.items():
     try:
         CONFIG_MAPPING.register(name, cls)
@@ -334,3 +351,4 @@ for name, cls in {
         CONFIG_MAPPING._extra_content[name] = cls
 
 AutoProcessor.register(MinerUDiffusionConfig, MinerUDiffusionProcessor, exist_ok=True)
+AutoProcessor.register(MinerUDiffusionV2Config, MinerUDiffusionProcessor, exist_ok=True)

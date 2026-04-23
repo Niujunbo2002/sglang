@@ -2,6 +2,7 @@ import re
 from typing import List, Union
 
 from sglang.srt.models.mineru_diffusion import MinerUDiffusionForConditionalGeneration
+from sglang.srt.models.mineru_diffusion_v2 import MinerUDiffusionV2ForConditionalGeneration
 from sglang.srt.multimodal.processors.base_processor import (
     BaseMultimodalProcessor,
     MultimodalSpecialTokens,
@@ -9,7 +10,7 @@ from sglang.srt.multimodal.processors.base_processor import (
 
 
 class MinerUDiffusionImageProcessor(BaseMultimodalProcessor):
-    models = [MinerUDiffusionForConditionalGeneration]
+    models = [MinerUDiffusionForConditionalGeneration, MinerUDiffusionV2ForConditionalGeneration]
 
     def __init__(self, hf_config, server_args, _processor, *args, **kwargs):
         super().__init__(hf_config, server_args, _processor, *args, **kwargs)
